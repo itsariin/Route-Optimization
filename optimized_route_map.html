@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bc2dfc0dda66b5b351db9f824d1a9d83 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_bc2dfc0dda66b5b351db9f824d1a9d83" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bc2dfc0dda66b5b351db9f824d1a9d83 = L.map(
+                "map_bc2dfc0dda66b5b351db9f824d1a9d83",
+                {
+                    center: [42.99, -81.26],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f63fbbc672ae9591aece6c51010b40a0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_f63fbbc672ae9591aece6c51010b40a0.addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var marker_39910fb53c1edd1519989342a759d476 = L.marker(
+                [42.99, -81.26],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_ecc9c8f3a542ce24f8df3cdb06382469 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_39910fb53c1edd1519989342a759d476.setIcon(icon_ecc9c8f3a542ce24f8df3cdb06382469);
+        
+    
+        var popup_3cb548dcaab76df643995856fffb8522 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9340ca0af49fb8c61ee08a88bf20fb8e = $(`<div id="html_9340ca0af49fb8c61ee08a88bf20fb8e" style="width: 100.0%; height: 100.0%;">265 Wharncliffe Rd North</div>`)[0];
+                popup_3cb548dcaab76df643995856fffb8522.setContent(html_9340ca0af49fb8c61ee08a88bf20fb8e);
+            
+        
+
+        marker_39910fb53c1edd1519989342a759d476.bindPopup(popup_3cb548dcaab76df643995856fffb8522)
+        ;
+
+        
+    
+    
+            var marker_e81f25c61be3bc6d3f3a2079024b8c7a = L.marker(
+                [42.93, -81.22],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_8e5a10ecc1fb7849dfbb6e9cfcf0df83 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_e81f25c61be3bc6d3f3a2079024b8c7a.setIcon(icon_8e5a10ecc1fb7849dfbb6e9cfcf0df83);
+        
+    
+        var popup_7bfdae94c67533ec159eb9361e5a1984 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7e58ceaa406307d1d2574616cb554a2d = $(`<div id="html_7e58ceaa406307d1d2574616cb554a2d" style="width: 100.0%; height: 100.0%;">1105 Wellington Rd., Store No. 122</div>`)[0];
+                popup_7bfdae94c67533ec159eb9361e5a1984.setContent(html_7e58ceaa406307d1d2574616cb554a2d);
+            
+        
+
+        marker_e81f25c61be3bc6d3f3a2079024b8c7a.bindPopup(popup_7bfdae94c67533ec159eb9361e5a1984)
+        ;
+
+        
+    
+    
+            var marker_1022a2f7f11a6734f588adb26ea37eb5 = L.marker(
+                [42.96, -81.23],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_6255441a2e7649d81f532327b240a72e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_1022a2f7f11a6734f588adb26ea37eb5.setIcon(icon_6255441a2e7649d81f532327b240a72e);
+        
+    
+        var popup_67370dfbe2ea7286bfd3830324edad93 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2b64e617279b08537e5bca2b68281526 = $(`<div id="html_2b64e617279b08537e5bca2b68281526" style="width: 100.0%; height: 100.0%;">631 Commissioners Road East</div>`)[0];
+                popup_67370dfbe2ea7286bfd3830324edad93.setContent(html_2b64e617279b08537e5bca2b68281526);
+            
+        
+
+        marker_1022a2f7f11a6734f588adb26ea37eb5.bindPopup(popup_67370dfbe2ea7286bfd3830324edad93)
+        ;
+
+        
+    
+    
+            var marker_8a3617ee89c602a5f31db8af2e773ab6 = L.marker(
+                [43.01, -81.34],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_6f0096f641d44fef941ca1a3229ae94d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_8a3617ee89c602a5f31db8af2e773ab6.setIcon(icon_6f0096f641d44fef941ca1a3229ae94d);
+        
+    
+        var popup_53a1982a97b2ec471730052009ec7f2d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_85164bcb717403de0ea698f041e6888a = $(`<div id="html_85164bcb717403de0ea698f041e6888a" style="width: 100.0%; height: 100.0%;">1442 Fanshawe Park Road</div>`)[0];
+                popup_53a1982a97b2ec471730052009ec7f2d.setContent(html_85164bcb717403de0ea698f041e6888a);
+            
+        
+
+        marker_8a3617ee89c602a5f31db8af2e773ab6.bindPopup(popup_53a1982a97b2ec471730052009ec7f2d)
+        ;
+
+        
+    
+    
+            var marker_3e58bc7f7b43c93faea33526fc191e73 = L.marker(
+                [43.03, -81.26],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_d18b09705b4099b015d033de6370905d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_3e58bc7f7b43c93faea33526fc191e73.setIcon(icon_d18b09705b4099b015d033de6370905d);
+        
+    
+        var popup_49e5884847810ba0bf23ea82d013afb0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1dd2229e5fa3c5950229f6f2493a0ad3 = $(`<div id="html_1dd2229e5fa3c5950229f6f2493a0ad3" style="width: 100.0%; height: 100.0%;">580 Fanshawe Park Road East, Unit 1, White Oaks Shopping Centre</div>`)[0];
+                popup_49e5884847810ba0bf23ea82d013afb0.setContent(html_1dd2229e5fa3c5950229f6f2493a0ad3);
+            
+        
+
+        marker_3e58bc7f7b43c93faea33526fc191e73.bindPopup(popup_49e5884847810ba0bf23ea82d013afb0)
+        ;
+
+        
+    
+    
+            var marker_f77c2470e5d73357de1ea78f0a3de33e = L.marker(
+                [43.01, -81.21],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_b5b3e0c54aa4487ce66e06912fab21f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_f77c2470e5d73357de1ea78f0a3de33e.setIcon(icon_b5b3e0c54aa4487ce66e06912fab21f0);
+        
+    
+        var popup_511c8d4767966300c2a2e2f40e5dff3e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b863e32a551a0d0fad00771c0f47a90b = $(`<div id="html_b863e32a551a0d0fad00771c0f47a90b" style="width: 100.0%; height: 100.0%;">1164 Highbury Ave N</div>`)[0];
+                popup_511c8d4767966300c2a2e2f40e5dff3e.setContent(html_b863e32a551a0d0fad00771c0f47a90b);
+            
+        
+
+        marker_f77c2470e5d73357de1ea78f0a3de33e.bindPopup(popup_511c8d4767966300c2a2e2f40e5dff3e)
+        ;
+
+        
+    
+    
+            var marker_23b0987cdf53fa5cb358982e6c56d932 = L.marker(
+                [42.98, -81.25],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_c4b3ed6c3e79a6d2a0b9dad1fa6e255a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_23b0987cdf53fa5cb358982e6c56d932.setIcon(icon_c4b3ed6c3e79a6d2a0b9dad1fa6e255a);
+        
+    
+        var popup_bdd117567744cb0803eeb050c107e921 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_73611ce8166e1115fb6b447c5a659074 = $(`<div id="html_73611ce8166e1115fb6b447c5a659074" style="width: 100.0%; height: 100.0%;">160 Dundas St W, Corner Unit</div>`)[0];
+                popup_bdd117567744cb0803eeb050c107e921.setContent(html_73611ce8166e1115fb6b447c5a659074);
+            
+        
+
+        marker_23b0987cdf53fa5cb358982e6c56d932.bindPopup(popup_bdd117567744cb0803eeb050c107e921)
+        ;
+
+        
+    
+    
+            var marker_1b01f0d365f0055e4bfb1746148defbf = L.marker(
+                [43.03, -81.28],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_e1842193b3ad84f7db8db8285e86a635 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_1b01f0d365f0055e4bfb1746148defbf.setIcon(icon_e1842193b3ad84f7db8db8285e86a635);
+        
+    
+        var popup_9e26c011f6fc47de2bd50391e77d3155 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_01f90b33bb784f8c2a5e4829d2d2b299 = $(`<div id="html_01f90b33bb784f8c2a5e4829d2d2b299" style="width: 100.0%; height: 100.0%;">1680 Richmond Street, L105A</div>`)[0];
+                popup_9e26c011f6fc47de2bd50391e77d3155.setContent(html_01f90b33bb784f8c2a5e4829d2d2b299);
+            
+        
+
+        marker_1b01f0d365f0055e4bfb1746148defbf.bindPopup(popup_9e26c011f6fc47de2bd50391e77d3155)
+        ;
+
+        
+    
+    
+            var marker_27c9127b6ca670c15eab430a90287e54 = L.marker(
+                [42.96, -81.33],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_8b8a99fcca7a8d0395b3038bac4da64f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_27c9127b6ca670c15eab430a90287e54.setIcon(icon_8b8a99fcca7a8d0395b3038bac4da64f);
+        
+    
+        var popup_94fe998cf03b4dce78ad9bad1a10405e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_23f9ca925f5ae77b8a01be0649e07240 = $(`<div id="html_23f9ca925f5ae77b8a01be0649e07240" style="width: 100.0%; height: 100.0%;">1291 Commissioners Road West</div>`)[0];
+                popup_94fe998cf03b4dce78ad9bad1a10405e.setContent(html_23f9ca925f5ae77b8a01be0649e07240);
+            
+        
+
+        marker_27c9127b6ca670c15eab430a90287e54.bindPopup(popup_94fe998cf03b4dce78ad9bad1a10405e)
+        ;
+
+        
+    
+    
+            var marker_198025e2f8eb4cd503e6836f1f3d3bad = L.marker(
+                [42.99, -81.25],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_acb1874cd9803c5b0084f193025f77b1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_198025e2f8eb4cd503e6836f1f3d3bad.setIcon(icon_acb1874cd9803c5b0084f193025f77b1);
+        
+    
+        var popup_977ef9b0cb8b025653168548591d31e3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91813a32c21ed66407d5520bcca28933 = $(`<div id="html_91813a32c21ed66407d5520bcca28933" style="width: 100.0%; height: 100.0%;">601 Richmond Street</div>`)[0];
+                popup_977ef9b0cb8b025653168548591d31e3.setContent(html_91813a32c21ed66407d5520bcca28933);
+            
+        
+
+        marker_198025e2f8eb4cd503e6836f1f3d3bad.bindPopup(popup_977ef9b0cb8b025653168548591d31e3)
+        ;
+
+        
+    
+    
+            var marker_4453a6999edb76d9463476818fa731ec = L.marker(
+                [42.94, -81.28],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_ffc2ec30581f0322eac757c8d5cbf81a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_4453a6999edb76d9463476818fa731ec.setIcon(icon_ffc2ec30581f0322eac757c8d5cbf81a);
+        
+    
+        var popup_2a41d5eb12766116fe1632a9f4239978 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f9684ff61c9754970d2e041caf58a63 = $(`<div id="html_4f9684ff61c9754970d2e041caf58a63" style="width: 100.0%; height: 100.0%;">3059 Wonderland Rd S</div>`)[0];
+                popup_2a41d5eb12766116fe1632a9f4239978.setContent(html_4f9684ff61c9754970d2e041caf58a63);
+            
+        
+
+        marker_4453a6999edb76d9463476818fa731ec.bindPopup(popup_2a41d5eb12766116fe1632a9f4239978)
+        ;
+
+        
+    
+    
+            var marker_41c762e23f361d7a0a3b1be61d676c10 = L.marker(
+                [42.97, -81.32],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_d732babda978a00eab41504b179591c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_41c762e23f361d7a0a3b1be61d676c10.setIcon(icon_d732babda978a00eab41504b179591c5);
+        
+    
+        var popup_f773bd5ddd4c6dc171082204afdfb295 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aef5a096ceafa1d11c6765e2dae556ce = $(`<div id="html_aef5a096ceafa1d11c6765e2dae556ce" style="width: 100.0%; height: 100.0%;">640 Hyde Park Road, Unit E</div>`)[0];
+                popup_f773bd5ddd4c6dc171082204afdfb295.setContent(html_aef5a096ceafa1d11c6765e2dae556ce);
+            
+        
+
+        marker_41c762e23f361d7a0a3b1be61d676c10.bindPopup(popup_f773bd5ddd4c6dc171082204afdfb295)
+        ;
+
+        
+    
+    
+            var marker_87a2cc6f0be19cb06a469b0e06242a96 = L.marker(
+                [43.01, -81.26],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_e3ef4ed873d75438a5529f36891fe748 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_87a2cc6f0be19cb06a469b0e06242a96.setIcon(icon_e3ef4ed873d75438a5529f36891fe748);
+        
+    
+        var popup_989b6b3418f7a8e9f4447c7b8a286e39 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_48d11835dcaaaf42d2010781155b581f = $(`<div id="html_48d11835dcaaaf42d2010781155b581f" style="width: 100.0%; height: 100.0%;">1151 Richmond St.</div>`)[0];
+                popup_989b6b3418f7a8e9f4447c7b8a286e39.setContent(html_48d11835dcaaaf42d2010781155b581f);
+            
+        
+
+        marker_87a2cc6f0be19cb06a469b0e06242a96.bindPopup(popup_989b6b3418f7a8e9f4447c7b8a286e39)
+        ;
+
+        
+    
+    
+            var marker_9005b6ffeb74ecce9f457008670858d9 = L.marker(
+                [42.98, -81.24],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_c091808eebb1a103f70b72e25173659d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_9005b6ffeb74ecce9f457008670858d9.setIcon(icon_c091808eebb1a103f70b72e25173659d);
+        
+    
+        var popup_44657ddbd3da03ec1c479ef088816ec3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e734806c982b8879e905ab281f4edc91 = $(`<div id="html_e734806c982b8879e905ab281f4edc91" style="width: 100.0%; height: 100.0%;">300 King St</div>`)[0];
+                popup_44657ddbd3da03ec1c479ef088816ec3.setContent(html_e734806c982b8879e905ab281f4edc91);
+            
+        
+
+        marker_9005b6ffeb74ecce9f457008670858d9.bindPopup(popup_44657ddbd3da03ec1c479ef088816ec3)
+        ;
+
+        
+    
+    
+            var marker_b21dea504f05bcd11680f472c7f8e1a1 = L.marker(
+                [43.0, -81.18],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_f88485668272357de6db5b24e354b697 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_b21dea504f05bcd11680f472c7f8e1a1.setIcon(icon_f88485668272357de6db5b24e354b697);
+        
+    
+        var popup_3c7219db452a79b452bd3a810dc21446 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_684d2229e77f8ebd92e1f8c4b75313fb = $(`<div id="html_684d2229e77f8ebd92e1f8c4b75313fb" style="width: 100.0%; height: 100.0%;">1905 Dundas Street East, #1</div>`)[0];
+                popup_3c7219db452a79b452bd3a810dc21446.setContent(html_684d2229e77f8ebd92e1f8c4b75313fb);
+            
+        
+
+        marker_b21dea504f05bcd11680f472c7f8e1a1.bindPopup(popup_3c7219db452a79b452bd3a810dc21446)
+        ;
+
+        
+    
+    
+            var marker_e85a0dbf6aa060f4b34e10ef355c3343 = L.marker(
+                [43.0, -81.28],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_f78522c930dae13eda11828eeb5f2904 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_e85a0dbf6aa060f4b34e10ef355c3343.setIcon(icon_f78522c930dae13eda11828eeb5f2904);
+        
+    
+        var popup_9e62915007cdac20e823ea151a18b28d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5c3d5be9b981a88610323b318aa45b0e = $(`<div id="html_5c3d5be9b981a88610323b318aa45b0e" style="width: 100.0%; height: 100.0%;">1255 Western Rd, Chapters</div>`)[0];
+                popup_9e62915007cdac20e823ea151a18b28d.setContent(html_5c3d5be9b981a88610323b318aa45b0e);
+            
+        
+
+        marker_e85a0dbf6aa060f4b34e10ef355c3343.bindPopup(popup_9e62915007cdac20e823ea151a18b28d)
+        ;
+
+        
+    
+    
+            var marker_b083c92042df2f87054bc4b9e474d5d4 = L.marker(
+                [42.94, -81.23],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_9a31ffff458ebb2fb68258bc59440da0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_b083c92042df2f87054bc4b9e474d5d4.setIcon(icon_9a31ffff458ebb2fb68258bc59440da0);
+        
+    
+        var popup_dd0a260cb99d36f33363abb16af9562e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f8777c70b3cbf027f58163dc801e44d = $(`<div id="html_4f8777c70b3cbf027f58163dc801e44d" style="width: 100.0%; height: 100.0%;">1037 Wellington Rd., Unit 2</div>`)[0];
+                popup_dd0a260cb99d36f33363abb16af9562e.setContent(html_4f8777c70b3cbf027f58163dc801e44d);
+            
+        
+
+        marker_b083c92042df2f87054bc4b9e474d5d4.bindPopup(popup_dd0a260cb99d36f33363abb16af9562e)
+        ;
+
+        
+    
+    
+            var marker_3907f5bfaa3811ef8015e355e233175f = L.marker(
+                [43.02, -81.31],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_58ce32f331a0d58605d060cd060c4121 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_3907f5bfaa3811ef8015e355e233175f.setIcon(icon_58ce32f331a0d58605d060cd060c4121);
+        
+    
+        var popup_a49f65fd8b6bb2c2e4e07cd5ad66595b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f817f37790c2a72791fcd9e48dc9341c = $(`<div id="html_f817f37790c2a72791fcd9e48dc9341c" style="width: 100.0%; height: 100.0%;">615 Fanshawe Park Road, Unit 1, Richmond North Centre</div>`)[0];
+                popup_a49f65fd8b6bb2c2e4e07cd5ad66595b.setContent(html_f817f37790c2a72791fcd9e48dc9341c);
+            
+        
+
+        marker_3907f5bfaa3811ef8015e355e233175f.bindPopup(popup_a49f65fd8b6bb2c2e4e07cd5ad66595b)
+        ;
+
+        
+    
+    
+            var marker_c909601169145a2ae29f1cea88a47f64 = L.marker(
+                [51.46, -0.17],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_712635e65a07a581d1dcb0848a4a4e44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_c909601169145a2ae29f1cea88a47f64.setIcon(icon_712635e65a07a581d1dcb0848a4a4e44);
+        
+    
+        var popup_be8f29372da21b13887303fdc67e761e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7a3ffb4b05b10e3a40af6bc68cd83856 = $(`<div id="html_7a3ffb4b05b10e3a40af6bc68cd83856" style="width: 100.0%; height: 100.0%;">37-39 St. John's Road, Brixton Underground Station</div>`)[0];
+                popup_be8f29372da21b13887303fdc67e761e.setContent(html_7a3ffb4b05b10e3a40af6bc68cd83856);
+            
+        
+
+        marker_c909601169145a2ae29f1cea88a47f64.bindPopup(popup_be8f29372da21b13887303fdc67e761e)
+        ;
+
+        
+    
+    
+            var marker_afc1470ebf7f9bb9c3990564c75a7509 = L.marker(
+                [37.11, -84.1],
+                {}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var icon_b78d6024ae1ba29ac4dcb9c79cc02fd8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_afc1470ebf7f9bb9c3990564c75a7509.setIcon(icon_b78d6024ae1ba29ac4dcb9c79cc02fd8);
+        
+    
+        var popup_072a035d72f0d249b5e507a7ff56fef4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d88255086af3136078065f50ae9086a1 = $(`<div id="html_d88255086af3136078065f50ae9086a1" style="width: 100.0%; height: 100.0%;">2021 West Highway 192</div>`)[0];
+                popup_072a035d72f0d249b5e507a7ff56fef4.setContent(html_d88255086af3136078065f50ae9086a1);
+            
+        
+
+        marker_afc1470ebf7f9bb9c3990564c75a7509.bindPopup(popup_072a035d72f0d249b5e507a7ff56fef4)
+        ;
+
+        
+    
+    
+            var poly_line_fcf987293f396a753635f3e40c5f710b = L.polyline(
+                [[42.99, -81.26], [42.99, -81.25]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_f38aaba15ae269735d9946e11b485d8f = L.polyline(
+                [[42.99, -81.25], [43.01, -81.21]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_8864ac9588d722e352a004c1606fd35a = L.polyline(
+                [[43.01, -81.21], [51.46, -0.17]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_f8df544b1a75f6d55cbc49cdd216bf1e = L.polyline(
+                [[51.46, -0.17], [43.0, -81.18]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_13f89fadf38e80f7e5fdabe4fc9f43db = L.polyline(
+                [[43.0, -81.18], [42.98, -81.24]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_549e379698839202ce7453da472dcf6e = L.polyline(
+                [[42.98, -81.24], [42.96, -81.23]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_9288fbbeb1c211bf66be5dd021db553a = L.polyline(
+                [[42.96, -81.23], [42.93, -81.22]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_fb1ce110b480e99a05529cd7102d3ce5 = L.polyline(
+                [[42.93, -81.22], [42.94, -81.23]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_dfe24542e3cebafeef35b704eef43811 = L.polyline(
+                [[42.94, -81.23], [42.94, -81.28]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_e6ac243327cc939b1aea2101243ce051 = L.polyline(
+                [[42.94, -81.28], [37.11, -84.1]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_a6296222d4637ba67ff0946bbca7c136 = L.polyline(
+                [[37.11, -84.1], [42.96, -81.33]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_a508145b6d2a66539f388af9b2b68ecc = L.polyline(
+                [[42.96, -81.33], [42.97, -81.32]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_a15f087216954d9f18e4568e59a38fa3 = L.polyline(
+                [[42.97, -81.32], [43.01, -81.34]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_90fa330302bef984ec2575d5c366ebdf = L.polyline(
+                [[43.01, -81.34], [43.02, -81.31]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_1bac63ee441c50b1a861eb1ecd4cdbbc = L.polyline(
+                [[43.02, -81.31], [43.03, -81.26]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_335cfec28959c3bddc6cda2a56f2398e = L.polyline(
+                [[43.03, -81.26], [43.03, -81.28]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_63ef90dd0fb65915279b1c5d6c82f0a4 = L.polyline(
+                [[43.03, -81.28], [43.0, -81.28]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_ef3d6ba2b78f1cad7a4ae66fa5276551 = L.polyline(
+                [[43.0, -81.28], [43.01, -81.26]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_c48a09ac91cef2af680c29eed8edbfcb = L.polyline(
+                [[43.01, -81.26], [42.98, -81.25]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+    
+            var poly_line_d756c4fa80766f5f307827c49e2a57c8 = L.polyline(
+                [[42.98, -81.25], [42.99, -81.26]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_bc2dfc0dda66b5b351db9f824d1a9d83);
+        
+</script>
+</html>
