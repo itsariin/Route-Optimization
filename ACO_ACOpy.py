@@ -1,4 +1,4 @@
-import folium
+import matplotlib.pyplot as plt
 import networkx as nx
 import osmnx as ox
 import pandas as pd
@@ -19,7 +19,6 @@ G = ox.add_edge_speeds(G)
 G = ox.add_edge_travel_times(G)
 
 # Nearest nodes
-start_node = ox.distance.nearest_nodes(G, start[1], start[0])
 dtf["node"] = dtf[["y", "x"]].apply(lambda x: ox.distance.nearest_nodes(G, x.iloc[1], x.iloc[0]), axis=1)
 dtf = dtf.drop_duplicates("node", keep='first')
 
@@ -30,22 +29,27 @@ def calculate_distance(a, b):
     except:
         return np.inf
 
-distance_matrix = np.array([[calculate_distance(a, b) for b in dtf["node"]] for a in tqdm(dtf["node"], desc="Calculating distances")])
+distance_matrix = np.array([[calculate_distance(a, b) for b in tqdm(dtf["node"], desc="Calculating distances")] for a in dtf["node"]])
 distance_matrix = pd.DataFrame(distance_matrix, columns=dtf["node"], index=dtf["node"])
 distance_matrix = distance_matrix.round().astype(float)
 
 # Create a graph for ACOpy
 graph = nx.Graph()
 for i in range(len(dtf)):
-    for j in range(i+1, len(dtf)):
+    for j in range(i + 1, len(dtf)):
         graph.add_edge(i, j, weight=distance_matrix.iloc[i, j])
 
 # Set up the ACO colony and solver
 colony = Colony(alpha=1, beta=3)  # alpha: pheromone importance, beta: distance importance
 solver = Solver(rho=0.1, q=10)    # rho: pheromone evaporation rate, q: pheromone deposit amount
 
+# List to store best distances over iterations
+best_distances = []
+
 # Solve the problem using the graph directly
-best_solution = solver.solve(graph, colony, limit=100)  # limit: number of iterations
+for iteration in range(100):  # Change the limit for more iterations
+    best_solution = solver.solve(graph, colony, limit=1)  # Run for one iteration
+    best_distances.append(best_solution.cost)
 
 # Extract the optimized route and cost
 optimized_route = best_solution.nodes   # Use 'nodes' to access the path in ACOpy
@@ -54,45 +58,18 @@ optimized_distance = best_solution.cost  # 'cost' stores the total cost/distance
 print(f"Optimized route: {optimized_route}")
 print(f"Optimized distance: {optimized_distance:.2f} seconds")
 
+# --- Plotting Distance Convergence ---
+plt.figure(figsize=(10, 6))
+plt.plot(best_distances, marker='o')
+plt.title("Convergence of Best Route Distance Over Iterations")
+plt.xlabel("Iteration")
+plt.ylabel("Best Distance (seconds)")
+plt.grid()
+plt.show()
+
 # Improvement calculation
 initial_route = list(range(len(dtf)))
-initial_distance = sum(distance_matrix.iloc[initial_route[i], initial_route[i+1]] for i in range(len(initial_route)-1))
+initial_distance = sum(distance_matrix.iloc[initial_route[i], initial_route[i + 1]] for i in range(len(initial_route) - 1))
 initial_distance += distance_matrix.iloc[initial_route[-1], initial_route[0]]  # Return to start
 improvement = (initial_distance - optimized_distance) / initial_distance * 100
 print(f"Improvement over initial route: {improvement:.2f}%")
-
-# --- Visualization using Folium ---
-def plot_optimized_route(G, dtf, optimized_route):
-    # Extract the coordinates of the optimized route
-    route_coordinates = dtf.iloc[optimized_route][['y', 'x']].values
-    route_nodes = dtf.iloc[optimized_route]['node'].values
-
-    # Initialize a Folium map centered on the first stop
-    m = folium.Map(location=[route_coordinates[0][0], route_coordinates[0][1]], zoom_start=12)
-
-    # Add markers for each stop
-    for i, coord in enumerate(route_coordinates):
-        folium.Marker(
-            location=[coord[0], coord[1]],
-            popup=f"Stop {i}",
-            icon=folium.Icon(color='red', icon='info-sign')
-        ).add_to(m)
-
-    # Plot the lines connecting the stops
-    for i in range(len(route_nodes) - 1):
-        try:
-            path = nx.shortest_path(G, route_nodes[i], route_nodes[i+1], weight='travel_time')
-            path_coords = [[G.nodes[node]['y'], G.nodes[node]['x']] for node in path]
-            folium.PolyLine(locations=path_coords, weight=2, color='blue').add_to(m)
-        except nx.NetworkXNoPath:
-            print(f"No path found between nodes {route_nodes[i]} and {route_nodes[i+1]}")
-
-    # Return the map object
-    return m
-
-# Generate and save the optimized route map
-print("Generating optimized route map...")
-optimized_route_map = plot_optimized_route(G, dtf, optimized_route)
-optimized_route_map.save("optimized_route_map.html")
-print("The optimized route map has been saved as 'optimized_route_map.html'")
-
