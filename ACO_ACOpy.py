@@ -1,7 +1,8 @@
-import pandas as pd
-import numpy as np
+import folium
 import networkx as nx
 import osmnx as ox
+import pandas as pd
+import numpy as np
 from tqdm import tqdm
 from acopy import Colony, Solver
 
@@ -59,3 +60,39 @@ initial_distance = sum(distance_matrix.iloc[initial_route[i], initial_route[i+1]
 initial_distance += distance_matrix.iloc[initial_route[-1], initial_route[0]]  # Return to start
 improvement = (initial_distance - optimized_distance) / initial_distance * 100
 print(f"Improvement over initial route: {improvement:.2f}%")
+
+# --- Visualization using Folium ---
+def plot_optimized_route(G, dtf, optimized_route):
+    # Extract the coordinates of the optimized route
+    route_coordinates = dtf.iloc[optimized_route][['y', 'x']].values
+    route_nodes = dtf.iloc[optimized_route]['node'].values
+
+    # Initialize a Folium map centered on the first stop
+    m = folium.Map(location=[route_coordinates[0][0], route_coordinates[0][1]], zoom_start=12)
+
+    # Add markers for each stop
+    for i, coord in enumerate(route_coordinates):
+        folium.Marker(
+            location=[coord[0], coord[1]],
+            popup=f"Stop {i}",
+            icon=folium.Icon(color='red', icon='info-sign')
+        ).add_to(m)
+
+    # Plot the lines connecting the stops
+    for i in range(len(route_nodes) - 1):
+        try:
+            path = nx.shortest_path(G, route_nodes[i], route_nodes[i+1], weight='travel_time')
+            path_coords = [[G.nodes[node]['y'], G.nodes[node]['x']] for node in path]
+            folium.PolyLine(locations=path_coords, weight=2, color='blue').add_to(m)
+        except nx.NetworkXNoPath:
+            print(f"No path found between nodes {route_nodes[i]} and {route_nodes[i+1]}")
+
+    # Return the map object
+    return m
+
+# Generate and save the optimized route map
+print("Generating optimized route map...")
+optimized_route_map = plot_optimized_route(G, dtf, optimized_route)
+optimized_route_map.save("optimized_route_map.html")
+print("The optimized route map has been saved as 'optimized_route_map.html'")
+
