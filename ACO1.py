@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 import folium
 import osmnx as ox
 import networkx as nx
@@ -45,79 +46,58 @@ class AntColony:
         self.beta = beta
         self.best_distances_per_iteration = []
         self.best_routes_per_iteration = []
+        self.final_best_route = None
+        self.final_best_distance = float('inf')
 
     def run(self):
-        best_route = None
-        best_distance = float('inf')
-        all_time_best_route = None
-        all_time_best_distance = float('inf')
-
-        for iteration in tqdm(range(self.num_iterations), desc="ACO Progress"):
+        for iteration in range(self.num_iterations):
             all_routes = self.generate_all_routes()
-            self.spread_pheromone(all_routes, self.num_ants, best_route=best_route)
+            self.spread_pheromone(all_routes, self.num_ants)
             best_route, best_distance = min(all_routes, key=lambda x: x[1])
 
-            if best_distance < all_time_best_distance:
-                all_time_best_distance = best_distance
-                all_time_best_route = best_route
+            if best_distance < self.final_best_distance:
+                self.final_best_distance = best_distance
+                self.final_best_route = best_route
 
             self.pheromone *= self.decay
             self.best_distances_per_iteration.append(best_distance)
             self.best_routes_per_iteration.append(best_route)
 
-        return all_time_best_route, all_time_best_distance
+            yield iteration, best_distance
 
     def generate_all_routes(self):
-        all_routes = []
-        for _ in range(self.num_ants):
-            route = self.generate_route(0)
-            distance = self.calculate_total_distance(route)
-            all_routes.append((route, distance))
-        return all_routes
+        return [self.generate_route(0) for _ in range(self.num_ants)]
 
     def generate_route(self, start_node):
         route = [start_node]
-        visited = set(route)
-        while len(visited) < len(self.distance_matrix):
-            move_probs = self.calculate_move_probs(route[-1], visited)
-            next_node = np.random.choice(range(len(move_probs)), p=move_probs)
-            route.append(next_node)
-            visited.add(next_node)
-        route.append(start_node)
-        return route
+        unvisited = set(range(len(self.distance_matrix)))
+        unvisited.remove(start_node)
 
-    def calculate_move_probs(self, current_node, visited):
-        pheromone = self.pheromone[current_node].copy()
-        distances = self.distance_matrix[current_node].copy()
-        
-        pheromone[list(visited)] = 0
-        move_probs = np.zeros(len(pheromone))
-        
-        for i in range(len(pheromone)):
-            if i not in visited and distances[i] != 0:
-                move_probs[i] = (pheromone[i] ** self.alpha) * ((1 / distances[i]) ** self.beta)
-        
-        total_prob = move_probs.sum()
-        return move_probs / total_prob if total_prob > 0 else np.ones_like(move_probs) / len(move_probs)
+        while unvisited:
+            move_probs = self.calculate_move_probs(route[-1], unvisited)
+            next_node = np.random.choice(list(unvisited), p=move_probs)
+            route.append(next_node)
+            unvisited.remove(next_node)
+
+        route.append(start_node)
+        return route, self.calculate_total_distance(route)
+
+    def calculate_move_probs(self, current_node, unvisited):
+        pheromone = self.pheromone[current_node, list(unvisited)]
+        distance = self.distance_matrix[current_node, list(unvisited)]
+        attractiveness = np.power(pheromone, self.alpha) * np.power(1.0 / distance, self.beta)
+        return attractiveness / attractiveness.sum()
 
     def calculate_total_distance(self, route):
         return sum(self.distance_matrix[route[i], route[i+1]] for i in range(len(route) - 1))
 
-    def spread_pheromone(self, all_routes, num_ants, best_route):
+    def spread_pheromone(self, all_routes, num_ants):
         for route, distance in all_routes:
+            pheromone_deposit = 1.0 / distance
             for i in range(len(route) - 1):
-                self.pheromone[route[i], route[i+1]] += 1 / distance
+                self.pheromone[route[i], route[i+1]] += pheromone_deposit
 
-# Visualization functions
-def plot_distance_evolution(ant_colony):
-    plt.figure(figsize=(10, 6))
-    plt.plot(range(1, len(ant_colony.best_distances_per_iteration) + 1), ant_colony.best_distances_per_iteration)
-    plt.title("ACO Route Optimization Progress")
-    plt.xlabel("Iteration")
-    plt.ylabel("Best Distance (seconds)")
-    plt.grid(True)
-    plt.show()
-
+# Function to plot optimized route
 def plot_optimized_route(G, dtf, optimized_route):
     route_coordinates = dtf.iloc[optimized_route][['y', 'x']].values
     route_nodes = dtf.iloc[optimized_route]['node'].values
@@ -148,14 +128,37 @@ decay = 0.95
 alpha = 1
 beta = 2
 
-# Run ACO on the distance matrix
+# Set up the plot for real-time updating
+fig, ax = plt.subplots(figsize=(10, 6))
+line, = ax.plot([], [], lw=2)
+ax.set_xlim(0, num_iterations)
+ax.set_ylim(0, distance_matrix.max().max())
+ax.set_xlabel("Iteration")
+ax.set_ylabel("Best Distance (seconds)")
+ax.set_title("ACO Route Optimization Progress")
+ax.grid(True)
+
+# Animation update function
+def update(frame):
+    iteration, distance = frame
+    x_data = list(range(iteration + 1))
+    y_data = ant_colony.best_distances_per_iteration
+    line.set_data(x_data, y_data)
+    ax.set_ylim(0, max(y_data) * 1.1)
+    return line,
+
+# Run ACO on the distance matrix with real-time plotting
 print("Starting ACO optimization...")
 ant_colony = AntColony(distance_matrix.values, num_ants, num_iterations, decay, alpha, beta)
-optimized_route, optimized_distance = ant_colony.run()
+ani = FuncAnimation(fig, update, frames=ant_colony.run(), blit=True, repeat=False, interval=100,cache_frame_data=False)
+plt.show()
 
-# Visualize results
-print("Generating visualizations...")
-plot_distance_evolution(ant_colony)
+# After animation is complete, get the final results
+optimized_route = ant_colony.final_best_route
+optimized_distance = ant_colony.final_best_distance
+
+# Generate and save the optimized route map
+print("Generating optimized route map...")
 optimized_route_map = plot_optimized_route(G, dtf, optimized_route)
 optimized_route_map.save("optimized_route_map.html")
 
